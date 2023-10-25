@@ -1,0 +1,114 @@
+{% load static %}
+<head>
+
+
+  <link rel="stylesheet" href="{% static 'CSS/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'CSS/detalle.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+      
+</head>
+
+
+<header>
+  <div class="navbar">
+      <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="container-fluid" >
+          <a class="navbar-brand" href="/dashboard-profesor">
+              <img src="{% static 'media/Logo1.png' %}"  width="80em" height="80em" style="margin-top: -15px;">
+          </a>            
+          <h1 style="font-size: x-large; color: azure;">Bienvenido: Profesor {{ profesor }}</h1>
+          <button style="margin-top: -15px;" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button> 
+          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"><img src="{% static 'media/slogan1.png' %}" width="300em"></h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <button class="btn-amarillo">
+                      <i class="fas fa-home"></i>
+                   <a class="nav-link" href="/dashboard-profesor">Home</a>
+                  </button>
+                </li>
+                <li class="nav-item">
+                  <button class="btn-amarillo">
+                      <i class="fas fa-cogs"></i> 
+                    <a class="nav-link" href="/ajustes">Ajustes</a>
+                  </button>
+                </li>
+                <li class="nav-item">
+                  <button class="btn-amarillo" (click)="logOut()" >
+                      <i class="fas fa-sign-out-alt"></i>
+                    <a class="nav-link">Log Out</a>
+                  </button>
+                </li>
+              </ul> 
+            </div>
+          </div>
+        </div>
+      </nav>
+      </div>
+</header>
+
+<body class="fondo">
+  <div class="cartas">
+    <div class="card">
+       <div class="card-content">
+         <div class="color-line"></div>
+         <div class="card-header">
+           <h5>{{ramo}}</h5>
+           <div>
+             <label>13/Septiembre/2023</label>
+           </div>
+         </div>
+       </div>
+     </div>
+     <div class="tabla">
+      <table>
+          <tr class="titulos">
+              <th>Clase</th>
+              <th>Fecha</th>
+              <th>Estado</th>
+          </tr>
+          {% for clase in clases %}
+          <tr class="{% if selectedRow == clase %}selected{% endif %}">
+              <td>{{clase.id}}</td>
+              <td>{{clase.fecha}}</td>
+              <td>
+                  <p class="estado" data-="{{clase.estado}}" hidden>{{clase.estado}}</p>
+                  {% if clase.estado %}
+                      Finalizado
+                  {% else %}
+                      Pendiente
+                  {% endif %}
+              </td>
+          </tr>
+          {% endfor %}
+      </table>
+  </div>
+
+  <div class="boton">
+      <button class="botonqr">
+          <img src="../../../../assets/img/qr.png" class="icono">
+          Generar QR
+      </button>
+  </div>
+  
+  <div class="boton">
+      <button class="botonreporte">
+          <img src="../../../../assets/img/reporte.png" class="icono">
+          Generar Reporte
+      </button>
+  </div>
+
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'JS/detalle.js' %}"></script>
+<script src="{% static 'JS/bootstrap.bundle.min.js' %}"></script>

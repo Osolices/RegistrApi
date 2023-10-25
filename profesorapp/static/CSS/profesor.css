@@ -1,0 +1,90 @@
+.navbar {
+    background-color: #1c4369 !important;
+    margin-bottom: 70px;
+  }
+  
+  .offcanvas {
+    background-color: #3a5c84 !important;
+  }
+  
+  .fondo {
+    background: #003357 !important;
+  }
+  .nav-link {
+    color: #000 !important; /* Cambia esto al color que prefieras */
+}
+.btn-amarillo {
+    background-color: #f8b31c !important; /* Fondo amarillo */
+    width: 100%; /* Ocupa el 100% del ancho del offcanvas */
+    border: none !important; /* Elimina el borde */
+    color: black !important; /* Color del texto */
+    text-align: center !important; /* Centra el texto */
+    text-decoration: none !important; /* Elimina la decoración del texto */
+    display: inline-block !important;
+    font-size: 16px !important;
+    transition-duration: 0.4s !important; /* Duración de la transición */
+    cursor: pointer !important; /* Cambia el cursor a mano al pasar por encima */
+}
+
+.btn-amarillo:hover {
+    background-color: lightyellow !important; /* Cambia el color de fondo al pasar por encima */
+    color: black !important;
+}
+  
+  .dias {
+    display: flex; /* Alinea los elementos de izquierda a derecha */
+    justify-content: space-between; /* Distribuye los elementos uniformemente a lo largo de la línea */
+    background: #f8b31c !important;
+  }
+  
+  .segment-button {
+    height: 50px;
+    background: #f8b21c00 !important;
+    flex-grow: 1; /* Permite que cada botón crezca para ocupar el espacio disponible */
+    text-align: center; /* Centra el texto dentro del botón */
+    border: none; /* Elimina los bordes */
+    outline: none; /* Elimina el contorno que aparece al hacer clic en el botón */
+    text-decoration: none !important; /* Elimina la decoración del texto */
+    display: inline-block !important;
+    font-size: 16px !important;
+    transition-duration: 0.4s !important; /* Duración de la transición */
+    cursor: pointer !important; /* Cambia el cursor a mano al pasar por encima */
+  }
+  .segment-button:hover {
+    background-color: lightyellow !important; /* Cambia el color de fondo al pasar por encima */
+    color: black !important;
+}
+  
+  .card {
+    margin: 15px;
+    position: relative;
+  }
+  
+  .card .card-content {
+    position: relative;
+    padding-left: 10px;
+  }
+  
+  .card .card-content .color-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background-color: green;
+  }
+  
+  .card .card-content .card-header .card-title {
+    color: black;
+    font-size: 20px;
+  }
+  
+  .card .card-content .card-content {
+    color: gray;
+    font-size: 16px;
+  }
+  
+  .card .card-content .card-content .extra-info {
+    display: none;
+  }
+  

@@ -1,0 +1,111 @@
+{% load static %}
+
+<head>
+
+
+    <link rel="stylesheet" href="{% static 'CSS/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/profesor.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+        
+</head>
+
+<header>
+    <div class="navbar">
+        <nav class="navbar navbar-dark bg-dark fixed-top">
+          <div class="container-fluid" >
+            <a class="navbar-brand" href="/dashboard-profesor">
+                <img src="{% static 'media/Logo1.png' %}"  width="80em" height="80em" style="margin-top: -15px;">
+            </a>            
+            <h1 style="font-size: x-large; color: azure;">Bienvenido: Profesor {{ profesor }}</h1>
+            <button style="margin-top: -15px;" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button> 
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"><img src="{% static 'media/slogan1.png' %}" width="300em"></h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  <li class="nav-item">
+                    <button class="btn-amarillo">
+                        <i class="fas fa-home"></i>
+                     <a class="nav-link" href="/dashboard-profesor">Home</a>
+                    </button>
+                  </li>
+                  <li class="nav-item">
+                    <button class="btn-amarillo">
+                        <i class="fas fa-cogs"></i> 
+                      <a class="nav-link" href="/ajustes">Ajustes</a>
+                    </button>
+                  </li>
+                  <li class="nav-item">
+                    <button class="btn-amarillo" (click)="logOut()" >
+                        <i class="fas fa-sign-out-alt"></i>
+                      <a class="nav-link">Log Out</a>
+                    </button>
+                  </li>
+                </ul> 
+              </div>
+            </div>
+          </div>
+        </nav>
+        </div>
+</header>
+
+<body class="fondo">
+    
+<!--Dashboard-->
+
+
+    <div class="dias">
+        <button class="segment-button" data-value="lunes">
+            <span class="label">L</span>
+        </button>
+        <button class="segment-button" data-value="martes">
+            <span class="label">M</span>
+        </button>
+        <button class="segment-button" data-value="miercoles">
+            <span class="label">X</span>
+        </button>
+        <button class="segment-button" data-value="jueves">
+            <span class="label">J</span>
+        </button>
+        <button class="segment-button" data-value="viernes">
+            <span class="label">V</span>
+        </button>
+        <button class="segment-button" data-value="sabado">
+            <span class="label">S</span>
+        </button>
+        <button class="segment-button" data-value="domingo">
+            <span class="label">D</span>
+        </button>
+        <button class="segment-button" data-value="todos">
+            <span class="label">Todos los cursos</span>
+        </button>
+    </div>
+
+       
+<div class="content fondo">
+    {% for c in clases %}
+        <div class="card">
+            <div class="card-content">
+                <div class="color-line"></div>
+                <div class="card-header">
+                    <h1 class="card-title">{{ c.ramo }}</h1>
+                    <span class="label">{{ c.bloque }}</span>
+                    <span class="label"><h5>{{ c.seccion }}</h5></span>
+                    <span class="dias" style="display: none;">{{ c.dias }}</span>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+  
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{% static 'JS/profesor.js' %}"></script>
+<script src="{% static 'JS/bootstrap.bundle.min.js' %}"></script>
